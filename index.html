@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="egg4946の29Tech vol.2向け一画面ポートフォリオ。KC3Hackのフロントエンド、SysHackのバックエンド経験を紹介します。"
+    />
+    <meta property="og:title" content="egg4946 Portfolio" />
+    <meta property="og:description" content="One-screen portfolio for 29Tech vol.2." />
+    <meta property="og:type" content="website" />
+    <title>egg4946 Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="portfolio-shell">
+      <img class="hero-bg" src="./assets/hero-workspace.png" alt="" />
+      <div class="overlay"></div>
+      <div class="light-rig" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <section class="hero-copy" aria-labelledby="portfolio-title">
+        <div class="topline">
+          <span>29Tech vol.2</span>
+          <span>Gaming Portfolio</span>
+        </div>
+        <h1 id="portfolio-title">egg4946</h1>
+        <p class="lead">
+          フロントエンドで体験を形にし、バックエンドで仕組みを支える。
+          ハッカソンとチーム開発を通して、課題からプロダクトを組み立てています。
+        </p>
+        <div class="actions" aria-label="portfolio links">
+          <a class="button primary" href="https://github.com/egg4946" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a class="button" href="https://github.com/kc3hack/2026_team26" target="_blank" rel="noreferrer">
+            KC3Hack
+          </a>
+          <a
+            class="button"
+            href="https://sys-hack-sefirot-frontend.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            SysHack
+          </a>
+          <a class="button" href="https://canva.link/jj0s9kmno36hmj0" target="_blank" rel="noreferrer">
+            Slides
+          </a>
+        </div>
+      </section>
+
+      <section class="dashboard" aria-label="portfolio summary">
+        <article class="panel main-work">
+          <div class="panel-head">
+            <span class="kicker">Main Work</span>
+            <span class="badge">Frontend</span>
+          </div>
+          <h2>はよ寝ろくん</h2>
+          <p>
+            ゲーム中の疲労を検知し、夜更かしを防ぐアプリ。KC3HackではReact / MUIを使った画面実装を担当しました。
+          </p>
+        </article>
+
+        <article class="panel sys-work">
+          <div class="panel-head">
+            <span class="kicker">SysHack</span>
+            <span class="badge warm">Backend</span>
+          </div>
+          <h2>SEFIROT</h2>
+          <p>
+            バックエンドを中心に担当しつつ、フロントエンド側も実装。画面とサーバー処理のつながりを意識しました。
+          </p>
+        </article>
+
+        <article class="panel role-panel">
+          <span class="kicker">Role</span>
+          <div class="role-grid">
+            <div>
+              <strong>Frontend</strong>
+              <span>UI / UX</span>
+            </div>
+            <div>
+              <strong>Backend</strong>
+              <span>API / Server</span>
+            </div>
+            <div>
+              <strong>Bridge</strong>
+              <span>Connect</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel skill-panel">
+          <span class="kicker">Skills</span>
+          <div class="chips" aria-label="skills">
+            <span>TypeScript</span>
+            <span>React</span>
+            <span>MUI</span>
+            <span>Go</span>
+            <span>C#</span>
+            <span>Docker</span>
+            <span>GitHub Actions</span>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
