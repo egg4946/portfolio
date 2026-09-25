@@ -5,53 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="egg4946（久保山諒）のポートフォリオ。ハッカソン開発、便利系Discord Bot、南山大学学生エンジニア団体NANDでの活動を紹介します。"
+      content="egg4946（久保山諒）のポートフォリオ。HACK STAGE STAGE2で最優秀賞のPolaris、KC3Hack 2026のはよ寝ろくん、WebClass Discord Notifierなど、作品ごとに課題・発想・担当・技術・結果を紹介します。"
     />
+    <meta name="theme-color" content="#0b0e0d" />
     <meta property="og:title" content="egg4946 Portfolio" />
     <meta
       property="og:description"
-      content="Hackathon projects, utility Discord bots, and community leadership at NAND."
+      content="Polaris（HACK STAGE STAGE2 最優秀賞）ほか、egg4946が何を考え、何を担当したかをたどれるポートフォリオ。"
     />
     <meta property="og:type" content="website" />
     <title>egg4946 Portfolio</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230b0e0d'/%3E%3Cpath d='M16 5l2.4 8.6L27 16l-8.6 2.4L16 27l-2.4-8.6L5 16l8.6-2.4z' fill='%239fd56f'/%3E%3C/svg%3E"
+    />
+    <link rel="preload" href="./assets/hero-workspace.webp" as="image" type="image/webp" />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
   </head>
   <body>
-    <main class="portfolio-shell">
-      <img class="hero-bg" src="./assets/hero-workspace.png" alt="" />
-      <div class="overlay" aria-hidden="true"></div>
+    <a class="skip-link" href="#works">作品へ移動</a>
 
-      <section class="hero-copy" aria-labelledby="portfolio-title">
-        <p class="identity">KUBOYAMA RYO / NANZAN UNIVERSITY</p>
-        <h1 id="portfolio-title"><span>egg</span><span>4946</span></h1>
-        <p class="lead">
-          使う人の小さな面倒を減らすものを作っています。フロントエンドからDiscord Botまで。NANDでは主任として、作る場そのものも整えています。
-        </p>
+    <main>
+      <div class="portfolio-shell" id="top">
+        <img class="hero-bg" src="./assets/hero-workspace.webp" alt="" width="1600" height="900" decoding="async" />
+        <div class="overlay" aria-hidden="true"></div>
+        <div class="grid-glow" aria-hidden="true"></div>
 
-        <dl class="hero-meta">
-          <div>
-            <dt>Focus</dt>
-            <dd>Useful tools</dd>
-          </div>
-          <div>
-            <dt>Role</dt>
-            <dd>NAND Lead</dd>
-          </div>
-          <div>
-            <dt>Next</dt>
-            <dd>HACK STAGE</dd>
-          </div>
-        </dl>
+        <section class="hero-copy" aria-labelledby="portfolio-title">
+          <p class="identity">KUBOYAMA RYO / NANZAN UNIVERSITY</p>
+          <h1 id="portfolio-title"><span>egg</span><span>4946</span></h1>
+          <p class="lead">
+            経験や日々の面倒を、根拠と仕組みで扱える形にするものを作っています。HACK STAGE
+            STAGE2では、チームで開発したPolarisが最優秀賞。画面、AIの安全策、Botの常駐運用まで自分で手を動かします。NANDでは主任として、作る場も整えています。
+          </p>
 
-        <nav class="actions" id="portfolio-actions" aria-label="portfolio links"></nav>
-        <p class="focus-status" aria-live="polite">
-          <span>Selected</span>
-          <strong id="focus-project">Works / 2026</strong>
-        </p>
+          <dl class="hero-meta">
+            <div>
+              <dt>Latest</dt>
+              <dd>Polaris 最優秀賞</dd>
+            </div>
+            <div>
+              <dt>Role</dt>
+              <dd>NAND 主任</dd>
+            </div>
+            <div>
+              <dt>Now</dt>
+              <dd>Godot / 対戦ゲーム</dd>
+            </div>
+          </dl>
+
+          <nav class="actions" id="portfolio-actions" aria-label="外部リンク"></nav>
+
+          <div class="hero-tools">
+            <button class="trace-toggle" id="trace-toggle" type="button" aria-pressed="false">
+              <span class="trace-toggle__track" aria-hidden="true"><span></span></span>
+              <span class="trace-toggle__text">Trace mode<small>記述の出典を表示</small></span>
+            </button>
+            <p class="focus-status" aria-live="polite">
+              <span>Selected</span>
+              <strong id="focus-project">Works / 2026</strong>
+            </p>
+          </div>
+          <p class="key-hint">
+            <kbd>1</kbd>–<kbd>5</kbd> 作品を開く <kbd>T</kbd> 出典 <kbd>←</kbd><kbd>→</kbd> ストーリーを進める
+          </p>
+        </section>
+
+        <section class="dashboard" id="works" aria-label="作品"></section>
+      </div>
+
+      <section class="section" id="timeline" aria-labelledby="timeline-title">
+        <header class="section-head">
+          <p class="identity">Timeline</p>
+          <h2 id="timeline-title">制作の流れ</h2>
+          <p class="section-lead">
+            節目を選ぶと、そこで何を作り、何を担当したかを表示します。間隔は実際の月の間隔に合わせています。
+          </p>
+          <div class="section-controls">
+            <div class="filter" role="group" aria-label="種類で絞り込み" id="timeline-filter"></div>
+            <button class="ghost-button" type="button" id="timeline-play" aria-pressed="false">流れを再生</button>
+          </div>
+        </header>
+        <div class="tl" id="timeline-track-wrap">
+          <ol class="tl-track" id="timeline-track" aria-label="年表"></ol>
+        </div>
+        <div class="tl-detail" id="timeline-detail" aria-live="polite"></div>
       </section>
 
-      <section class="dashboard" id="portfolio-dashboard" aria-label="portfolio projects"></section>
+      <section class="section" id="toolkit" aria-labelledby="toolkit-title">
+        <header class="section-head">
+          <p class="identity">Toolkit</p>
+          <h2 id="toolkit-title">技術と、それを何に使ったか</h2>
+          <p class="section-lead">
+            <span class="scope scope--mine">本人</span>はegg4946のコミットで確認できた用途、<span class="scope scope--team">チーム</span>はプロダクト全体の構成です。
+          </p>
+          <div class="filter" role="group" aria-label="作品で絞り込み" id="toolkit-filter"></div>
+        </header>
+        <div class="uses" id="toolkit-list"></div>
+      </section>
+
+      <section class="section" id="verify" aria-labelledby="verify-title">
+        <header class="section-head">
+          <p class="identity">Open questions</p>
+          <h2 id="verify-title">まだ裏付けていないこと</h2>
+          <p class="section-lead">
+            このサイトは、GitHubのコミットやREADMEで確かめられたことだけを担当・成果として書いています。確かめられていない項目は<span
+              class="verify-tag"
+              >要確認</span
+            >として残しています。
+          </p>
+        </header>
+        <ul class="verify-list" id="verify-list"></ul>
+      </section>
     </main>
-    <script src="./script.js"></script>
+
+    <footer class="site-foot">
+      <p>© egg4946 / Kuboyama Ryo</p>
+      <p>GitHub情報は2026.09.25時点</p>
+      <a href="#top">ページ上部へ</a>
+    </footer>
+
+    <dialog class="story" id="story" aria-labelledby="story-title">
+      <div class="story-shell" id="story-shell">
+        <header class="story-head">
+          <div class="story-heading">
+            <p class="kicker" id="story-kicker"></p>
+            <h2 id="story-title"></h2>
+            <p class="story-summary" id="story-summary"></p>
+            <div class="story-links" id="story-links"></div>
+          </div>
+          <button class="story-close" type="button" id="story-close" aria-label="閉じる">
+            <span aria-hidden="true">×</span>
+          </button>
+        </header>
+        <div class="story-demo" id="story-demo"></div>
+        <nav class="story-rail" aria-label="ストーリーの段階">
+          <ol id="story-rail"></ol>
+          <div class="story-progress" aria-hidden="true"><span id="story-progress"></span></div>
+        </nav>
+        <div class="story-body" id="story-body" tabindex="-1">
+          <ol class="story-steps" id="story-steps"></ol>
+        </div>
+        <footer class="story-foot">
+          <button class="ghost-button" type="button" id="story-prev">← 前へ</button>
+          <span class="story-count" id="story-count" aria-live="polite"></span>
+          <button class="ghost-button ghost-button--accent" type="button" id="story-next">次へ →</button>
+          <button class="ghost-button" type="button" id="story-all">すべて表示</button>
+        </footer>
+      </div>
+    </dialog>
   </body>
 </html>
