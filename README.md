@@ -1,6 +1,6 @@
 # egg4946 Portfolio
 
-egg4946（久保山諒）のワンページポートフォリオです。ビルド不要の静的サイト（`index.html` / `styles.css` / `script.js`）です。
+egg4946のワンページポートフォリオです。ビルド不要の静的サイト（`index.html` / `styles.css` / `script.js`）です。
 
 ## 内容
 
